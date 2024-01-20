@@ -1,0 +1,70 @@
+<!DOCTYPE Html>
+    <html>
+    <head>
+        <title>church Hymms</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+         crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="church list .css">
+    </head>
+    <body>
+
+
+            <div class="container">
+    <img src="music.jpg">
+    <div class="search"><input type="text" id="searchInput" placeholder="Index..." >
+            <i class="fa-brands fa-searchengin fa-bounce" style="color: navy; font-size: larger;"></i>
+            </div>
+            </div>
+    <div><ul id="myList">
+<li><a href="hymn 1.html"><p><h4>1.TO GOD BE THE GLORY </h4></p></a></li>
+<li><a href="hymns 2.html"><h4>2.GREAT IS THY FAITHFULNESS</h4></a></li>
+<li><a href="hymn 3.html"><h4>3.HOW GREAT THOU ART</h4></a></li>
+<li><a href=""><h4>4.O WORSHIP THE KING</h4></a></li>
+<li><a href=""><h4>5.HOLY HOLY HOLY </h4></a></li>
+<li><a href=""><h4>6.OH FOR A THOUSAND TONGUES TO SING </h4></a></li>
+<li><a href=""><h4>7.PRAISE HIM, PRAISE HIM</h4></a></li>
+<li><a href=""><h4>8.PRAISE TO THE LORD, THE ALIMIGHTY </h4></a></li>
+<li><a href=""><h4>9.BE GLAD IN THE LORD AND REJOICE </h4></a></li>
+<li><a href=""><h4>10.PRAISE THE KING OF GLORY</h4></a></li>
+<li><a href=""><h4>11.IMMORTAL INVISIBLE GOD ONLY WISE </h4></a></li>
+</ul>
+</div>
+
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+    let searchValue = this.value.toLowerCase();
+    let listItems = document.getElementById('myList').getElementsByTagName('li');
+
+    for (let i = 0; i < listItems.length; i++) {
+        let currentItem = listItems[i].textContent.toLowerCase();
+
+        if (currentItem.includes(searchValue)) {
+            listItems[i].style.display = 'list-item';
+        } else {
+            listItems[i].style.display = 'none';
+        }
+    }
+});
+
+// Add alphabetical sorting
+document.getElementById('myList').addEventListener('click', function () {
+    let list = this;
+    let items = list.children;
+    let itemsArray = [];
+
+    for (let i = 0; i < items.length; i++) {
+        itemsArray.push(items[i]);
+    }
+
+    itemsArray.sort(function (a, b) {
+        return a.textContent.localeCompare(b.textContent);
+    });
+
+    for (let i = 0; i < itemsArray.length; i++) {
+        list.appendChild(itemsArray[i]);
+    }
+});</script>
+</body>
+</html>
